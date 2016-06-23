@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,60 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-XQ-aRE">
+                                <rect key="frame" x="214" y="55" width="173" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="V12-PG-NAI"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Farenheight"/>
+                                    <segment title="Celcius "/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlIndexChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="ftL-My-HGb"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nND-L5-Sjw">
+                                <rect key="frame" x="18" y="294" width="564" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aJn-hQ-fYe"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="KSS-gW-urC"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hia-ME-pvL">
+                                <rect key="frame" x="245" y="170" width="109" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="zby-7M-qee"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nND-L5-Sjw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="APr-oO-3bs"/>
+                            <constraint firstItem="C5c-XQ-aRE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="CtC-g5-WmK"/>
+                            <constraint firstItem="hia-ME-pvL" firstAttribute="centerX" secondItem="nND-L5-Sjw" secondAttribute="centerX" id="O9a-3I-Ny0"/>
+                            <constraint firstItem="hia-ME-pvL" firstAttribute="top" secondItem="C5c-XQ-aRE" secondAttribute="bottom" constant="87" id="Qj7-pd-i2s"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nND-L5-Sjw" secondAttribute="bottom" constant="276" id="pNt-Qe-cS5"/>
+                            <constraint firstItem="nND-L5-Sjw" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rxz-ZE-eq4"/>
+                            <constraint firstItem="C5c-XQ-aRE" firstAttribute="centerX" secondItem="nND-L5-Sjw" secondAttribute="centerX" id="t2i-2I-zLg"/>
+                            <constraint firstItem="nND-L5-Sjw" firstAttribute="top" secondItem="hia-ME-pvL" secondAttribute="bottom" constant="83" id="vkX-oN-Dlv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CandF" destination="C5c-XQ-aRE" id="iWO-JS-bVe"/>
+                        <outlet property="ThermostatLabel" destination="hia-ME-pvL" id="roa-kU-Wdg"/>
+                        <outlet property="slider" destination="nND-L5-Sjw" id="xw5-3N-WkH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="305"/>
         </scene>
     </scenes>
 </document>

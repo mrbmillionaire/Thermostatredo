@@ -14,14 +14,43 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+-(IBAction)sliderValueChange:(id)sender {
+    NSLog(@"sliderbeingcalled");
+    
+    float a = self.slider.value;
+    NSLog (@"thisisthevalueofslider %f",a);
+    
+    
+    self.ThermostatLabel.text= [NSString stringWithFormat:@"%.0f",a];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(IBAction) segmentedControlIndexChanged
+{
+    switch (self.CandF.selectedSegmentIndex)
+    {
+        case 0:
+            self.slider.value = ((self.slider.value -32)/1.8);
+            break;
+        case 1:
+            self.slider.value = ((self.slider.value *1.8)+32);
+            break;
+        default:
+            break;
+            
+    }
+    
+    NSLog(@"sliderbeingcalled");
+    
+    float a = self.slider.value;
+    NSLog (@"thisisthevalueofslider %f",a);
+    
+    
+    self.ThermostatLabel.text= [NSString stringWithFormat:@"%.0f",a];
 }
+
+
+
+
 
 @end

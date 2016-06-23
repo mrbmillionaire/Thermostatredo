@@ -11,5 +11,11 @@
 @interface ViewController : UIViewController
 
 
+@property (nonatomic, weak) IBOutlet UISlider *slider;
+
+@property (nonatomic, weak) IBOutlet UILabel *ThermostatLabel;
+
+@property (nonatomic, weak) IBOutlet UISegmentedControl *CandF;
+
 @end
 
